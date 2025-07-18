@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>By {{ article.author.get_full_name }}</p>
+    <p>{{ article.content }}</p>
+    {% if request.user.role == 'Editor' and not article.approved %}
+        <form action="{% url 'approve_article' article.pk %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Approve</button>
+        </form>
+    {% endif %}
+    <p><a href="{% url 'article_list' %}">Back to Articles</a></p>
+</body>
+</html>
+{% endblock %}

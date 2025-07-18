@@ -1,0 +1,52 @@
+News Application – Quick Setup Summary
+1. ENVIRONMENT VARIABLES (.env)
+Create a .env file in the project root with the following:
+
+ini
+Copy
+SECRET_KEY=your-secret-key
+DEBUG=True
+DB_NAME=giulia
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_HOST=127.0.0.1
+DB_PORT=3306
+EMAIL_HOST_USER=you@example.com
+EMAIL_HOST_PASSWORD=emailpassword
+2. DATABASE SETUP (MariaDB)
+Open the MariaDB shell and run:
+
+sql
+Copy
+CREATE DATABASE giulia CHARACTER SET UTF8MB4;
+3. INSTALL DEPENDENCIES
+bash
+Copy
+python -m venv venv
+venv\Scripts\activate  # Windows
+# or
+source venv/bin/activate  # macOS/Linux
+
+pip install -r requirements.txt
+4. DJANGO SETUP
+bash
+Copy
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+5. STATIC FILES
+In settings.py, ensure:
+
+python
+Copy
+STATICFILES_DIRS = [BASE_DIR / 'static']
+6. ACCESS URLS
+Admin Panel: /admin/
+
+User Login: /accounts/login/
+
+User Signup: /signup/
+
+Homepage: /
+

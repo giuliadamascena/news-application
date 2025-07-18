@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ request.user.username }}</p>
+    <p><a href="{% url 'article_list' %}">View All Articles</a></p>
+    {% if request.user.role == 'Journalist' %}
+        <p><a href="{% url 'article_create' %}">Submit New Article</a></p>
+    {% endif %}
+    {% if request.user.role == 'Editor' %}
+        <p><a href="{% url 'pending_articles' %}">Pending Articles for Approval</a></p>
+    {% endif %}
+
+    <ul>
+        {% for article in articles %}
+            <li>{{ article.title }} by {{ article.author }} {% if article.approved %}(Approved){% endif %}</li>
+        {% empty %}
+            <li>No articles found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}
