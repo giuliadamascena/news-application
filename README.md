@@ -22,25 +22,23 @@ A Django-based news platform that supports independent journalists, curated publ
 
 ### 1. Clone the Repository
 
-```bash
 git clone https://github.com/your-username/django-news-app.git
 cd django-news-app
 
 2. Create and Activate a Virtual Environment
-bash
-Copy
+
 python -m venv venv
 venv\Scripts\activate  # On Windows
 # source venv/bin/activate  # On macOS/Linux
+
 3. Install Dependencies
-bash
-Copy
+
 pip install -r requirements.txt
+
 4. Configure Environment Variables
 Create a .env file in your project root and include:
 
-env
-Copy
+
 DJANGO_SECRET_KEY=your-secret-key
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1,localhost
@@ -51,15 +49,15 @@ DB_USER=your_db_user
 DB_PASSWORD=your_db_password
 DB_HOST=localhost
 DB_PORT=3306
+
 🗄️ Database Setup
-bash
-Copy
+
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
+
 🚀 Run the Server
-bash
-Copy
+
 python manage.py runserver
 Visit: http://127.0.0.1:8000
 
@@ -78,21 +76,17 @@ Endpoint	Method	Description
 🧪 Running Tests
 Ensure test packages are installed:
 
-bash
-Copy
 pip install pytest pytest-django
 Create a pytest.ini file:
 
-ini
-Copy
+
 [pytest]
 DJANGO_SETTINGS_MODULE = news_project.settings
 python_files = tests.py test_*.py *_tests.py
 Then run:
 
-bash
-Copy
 pytest
+
 🛠 Admin Panel
 Visit: http://127.0.0.1:8000/admin/
 
@@ -111,8 +105,8 @@ Newsletter model is present; template/views may be needed for full implementatio
 
 Remember to register all models in admin.py.
 
-📄 License
-MIT License
+
+
 
 👩‍💻 Author
-Giulia Damascena — Capstone project for Software Engineering.
+Giulia Damascena 
